@@ -28,7 +28,35 @@
         //simple wary
         arr2 = [...arr1, ...arr]
         console.warn(arr2)
+        //Merge Two Array with Wile Lop
+        let arra = [3, 7, 12, 34, 56, 909, 10, 20]
+        let arrb = [1, 2, 4, 7, 10, 11, 99]
+        let arrc = []
+        let i = 0;
+        let k = 0;
+        let j = 0;
+        console.log(i)
 
+        while (i < arra.length && j < arrb.length) {
+            if (i < arra.length) {
+                arrc[k] = arra[i]
+                console.log("i am if", arra[i])
+
+
+                i++;
+
+            }
+            else {
+                arrc[k] = arrb[j]
+                console.log("i am else", arrb[j])
+
+                j++;
+
+
+            }
+            k++
+        }
+        console.warn("arcc", arrc)
     </script>
 
 </body>
