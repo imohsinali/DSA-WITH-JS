@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Linear Search</h1>
+    <p>In linear search we search the desire element one by one with help of looping through the array</p>
+    <script>
+        const arr = [1, 20, 13, 4, 15, 60, 7, 8, 9, 15]
+        const item = 15
+        let index = [];
+
+        for (let i = 0; i < arr.length; i++) {
+
+            // index.push[i];
+
+            if (item === arr[i]) {
+
+                console.warn(arr[i])
+                index.push(i);
+                // break //after this we will exit from the loop so it will help to incresase performace
+                //use break if we have only to search one item at one index.
+
+            }
+
+
+        }
+        console.log(index)
+
+        //simple search
+        console.warn(arr.indexOf(item)
+        ) 
+    </script>
+</body>
+
+</html>
