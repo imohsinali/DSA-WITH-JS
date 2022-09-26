@@ -20,42 +20,36 @@
         for (let i = 0; i < arr.length; i++) {
             arr2.push(arr[i])
         }
-
         for (let i = 0; i < arr1.length; i++) {
             arr2.push(arr1[i])
         }
+        //20 line complexcity 6 arr 6arr1 8 line
+        //4 space complexity beacuse 4 variable are use.
         console.warn(arr2)
         //simple wary
         arr2 = [...arr1, ...arr]
         console.warn(arr2)
-        //Merge Two Array with Wile Lop
-        let arra = [3, 7, 12, 34, 56, 909, 10, 20]
+        //Merge Two Array with Wile Loop
+        let arra = [3, 7, 12, 34, 56, 909]
         let arrb = [1, 2, 4, 7, 10, 11, 99]
         let arrc = []
         let i = 0;
         let k = 0;
         let j = 0;
-        console.log(i)
-
-        while (i < arra.length && j < arrb.length) {
+        while (i < arra.length || j < arrb.length) {
             if (i < arra.length) {
                 arrc[k] = arra[i]
-                console.log("i am if", arra[i])
-
-
                 i++;
-
             }
             else {
                 arrc[k] = arrb[j]
-                console.log("i am else", arrb[j])
-
                 j++;
-
-
             }
             k++
         }
+
+        //28 line complexcity 16 line 12 arra and arrb
+        //6 space complexcity
         console.warn("arcc", arrc)
     </script>
 
