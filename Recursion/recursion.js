@@ -19,3 +19,7 @@ const fun = (n) => {
 };
 
 console.warn(fun(5));
+
+//basic recursion is direct recursion and the above example is direct recursion
+
+
