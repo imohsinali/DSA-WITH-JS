@@ -18,3 +18,30 @@ function buymore(x) {
 }
 
 buyapple(money);
+
+function test(x) {
+  console.warn(x);
+  if (x > 0) {
+    test(x - 1);
+  }
+}
+
+test(5);
+
+function color() {
+  let data = 20;
+  console.warn(data);
+}
+
+function days() {
+  color();
+}
+
+function fruits() {
+  days();
+}
+function topfun() {
+  fruits();
+}
+
+topfun();
