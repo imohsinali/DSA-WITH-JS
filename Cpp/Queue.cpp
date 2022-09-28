@@ -83,6 +83,7 @@ int main()
     q.enQeue(20);
     q.enQeue(40);
     q.deQueue();
+    q.isEmpty();
 
     return 0;
 }
