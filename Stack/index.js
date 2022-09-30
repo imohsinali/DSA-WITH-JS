@@ -11,22 +11,20 @@ function push(neVal) {
 }
 
 function pop() {
-  if (currentSize > 0) {
-    currentSize--;
-    data.length = currentSize;
-  } else {
+  if (currentSize <= 0) {
     console.warn("stack is empty");
+  } else {
+    currentSize--;
+
+    data[currentSize];
   }
+  data.length = currentSize;
 }
 push(20);
 push(19);
 push(11);
 push(12);
-push(11);
-push(8);
-push(5);
 pop();
 pop();
 pop();
-console.warn(a);
 console.warn(data);
