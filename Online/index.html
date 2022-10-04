@@ -2,53 +2,227 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>JavaScript Form Validation using a sample registration form</title>
     <meta name="keywords" content="example, JavaScript Form Validation, Sample registration form" />
     <meta name="description"
         content="This document is an example of JavaScript Form Validation using a sample registration form. " />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 
-<body onload="document.registration.userid.focus();">
+<body onload="document.registration.firstName.focus();">
     <h1>Registration Form</h1>
-    Use tab keys to move from one input field to the next.
-    <form name='registration' onSubmit="return formValidation();">
-        <ul>
-            <li><label for="userid">User id:</label></li>
-            <li><input type="text" name="userid" size="12" /></li>
-            <li><label for="passid">Password:</label></li>
-            <li><input type="password" name="passid" size="12" /></li>
-            <li><label for="username">Name:</label></li>
-            <li><input type="text" name="username" size="50" /></li>
-            <li><label for="address">Address:</label></li>
-            <li><input type="text" name="address" size="50" /></li>
-            <li><label for="country">Country:</label></li>
-            <li><select name="country">
-                    <option selected="" value="Default">(Please select a country)</option>
-                    <option value="AF">Australia</option>
-                    <option value="AL">Canada</option>
-                    <option value="DZ">India</option>
-                    <option value="AS">Russia</option>
-                    <option value="AD">USA</option>
-                </select></li>
-            <li><label for="zip">ZIP Code:</label></li>
-            <li><input type="text" name="zip" /></li>
-            <li><label for="email">Email:</label></li>
-            <li><input type="text" name="email" size="50" /></li>
-            <li><label id="gender">Sex:</label></li>
-            <li><input type="radio" name="msex" value="Male" /><span>Male</span></li>
-            <li><input type="radio" name="fsex" value="Female" /><span>Female</span></li>
-            <li><label>Language:</label></li>
-            <li><input type="checkbox" name="en" value="en" checked /><span>English</span></li>
-            <li><input type="checkbox" name="nonen" value="noen" /><span>Non English</span></li>
-            <li><label for="desc">About:</label></li>
-            <li><textarea name="desc" id="desc"></textarea></li>
-            <li><input type="submit" name="submit" value="Submit" /></li>
-        </ul>
-    </form>
-    <script src="index.js"></script>
+    <table>
+        <form name="registration" onSubmit="return formValidation();">
+            <tr>
+                <td>
+                    <label for="firstName">First Name:</label>
+                </td>
+                <td>
+                    <input id="firstName" type="text" name="firstName"
+                        onchange="allLetter(document.registration.firstName)" required />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="middleName">Middle Initial:</label></td>
+                <td>
+                    <input type="text" pattern="[A-Za-z]{1}" name="middleName" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="lastName">Last Name:</label></td>
+                <td>
+                    <input type="text" name="lastName" onchange="allLetter(document.registration.lastName)" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="DOB">Date of birth:</label></td>
+                <td>
+                    <input type="date" id="DOB" name="DOB" min="1910-01-01" max="2022-12-31" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="ssn" class="form__label text">Social Security Number:</label>
+                </td>
+                <td>
+                    <input type="text" name="ssn" maxlength="11" onchange="SSNValidation(this.form.ssn.value);" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="address1">Address Line 1:</label></td>
+                <td>
+                    <input type="text" name="address1" minlength="2" maxlength="30" required />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="address2">Address Line 2:</label></td>
+                <td>
+                    <input type="text" name="address2" minlength="2" maxlength="30" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="city">City:</label></td>
+                <td>
+                    <input type="text" name="city" required minlength="2" maxlength="30" />
+                </td>
+            </tr>
+            <tr>
+                <td><label for="state">State:</label></td>
+                <td>
+                    <select id="state" name="state">
+                        <option value="---">---</option>
+                        <option value="Alabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="Arizona">Arizona</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="California">California</option>
+                        <option value="Colorado">Colorado</option>
+                        <option value="Connecticut">Connecticut</option>
+                        <option value="DC">DC</option>
+                        <option value="Delaware">Delaware</option>
+                        <option value="District of Columbia">District of Columbia</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Guam">Guam</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Idaho">Idaho</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Kansas">Kansas</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Maine">Maine</option>
+                        <option value="Maryland">Maryland</option>
+                        <option value="Massachusetts">Massachusetts</option>
+                        <option value="Michigan">Michigan</option>
+                        <option value="Minnesota">Minnesota</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Nebraska">Nebraska</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="New Hampshire">New Hampshire</option>
+                        <option value="New Jersey">New Jersey</option>
+                        <option value="New Mexico">New Mexico</option>
+                        <option value="New York">New York</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="North Dakota">North Dakota</option>
+                        <option value="Northern Marianas Islands">
+                            Northern Marianas Islands
+                        </option>
+                        <option value="Ohio">Ohio</option>
+                        <option value="Oklahoma">Oklahoma</option>
+                        <option value="Oregon">Oregon</option>
+                        <option value="Pennsylvania">Pennsylvania</option>
+                        <option value="Puerto Rico">Puerto Rico</option>
+                        <option value="Rhode Island">Rhode Island</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="South Dakota">South Dakota</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Utah">Utah</option>
+                        <option value="Vermont">Vermont</option>
+                        <option value="Virginia">Virginia</option>
+                        <option value="Virgin Islands">Virgin Islands</option>
+                        <option value="Washington">Washington</option>
+                        <option value="West Virginia">West Virginia</option>
+                        <option value="Wisconsin">Wisconsin</option>
+                        <option value="Wyoming">Wyoming</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="zip">ZIP Code:</label></td>
+                <td><input type="text" name="zip" required /></td>
+            </tr>
 
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td>
+                    <input type="text" name="email" />
+
+                </td>
+
+            </tr>
+            <tr>
+                <td><label for="userid">User id:</label></td>
+                <td><input type="text" name="userid" /></td>
+            </tr>
+            <tr>
+                <td><label for="passid">Password:</label></td>
+                <td><input type="password" name="passid" /></td>
+            </tr>
+            <tr>
+                <td><label for="cpassid">Conform Password:</label></td>
+                <td><input type="password" name="cpassid" /></td>
+            </tr>
+            <tr>
+                <td><label for="vehicle1"> Have you had Chicken Pox</label></td>
+                <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" /></td>
+            </tr>
+
+            <tr>
+                <td><label for="vehicle1"> Have you had Covid</label></td>
+                <td> <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" /></td>
+            </tr>
+
+            <tr>
+                <td><label for="vehicle1"> Have you had Chicken Measles</label></td>
+                <td> <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" /></td>
+            </tr>
+
+            <tr>
+                <td><label for="vehicle1"> Have you had Tb</label></td>
+                <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" /></td>
+            </tr>
+            <tr>
+                <td><label for="vehicle1"> I have a bike</label></td>
+                <td> <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" /></td>
+            <tr>
+                <td><input type="radio" id="html" name="fav_language" value="HTML" /></td>
+                <td><label for="html">HTML</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" id="css" name="fav_language" value="CSS" /></td>
+                <td><label for="css">CSS</label></td>
+            </tr>
+
+            <tr>
+                <td><input type="radio" id="javascript" name="fav_language" value="JavaScript" /></td>
+                <td><label for="javascript">JavaScript</label></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p> Select desired salary from $20,000/year to $200,00/year.
+                    </p>
+                    <input type="range" name="rangeInput" min="20000" max="200000"
+                        onchange="updateTextInput(this.value);">
+
+                    <input type="text" id="textInput" value="">
+
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="desc">About:</label></td>
+                <td class="about"><textarea name="desc" id="desc"></textarea></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td><input type="submit" name="submit" value="Submit" class="submit" /></td>
+            </tr>
+
+
+        </form>
+    </table>
+    <script src="index1.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
