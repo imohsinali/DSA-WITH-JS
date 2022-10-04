@@ -3,19 +3,17 @@ function formValidation() {
   var passid = document.registration.passid;
   var uname = document.registration.username;
   var uadd = document.registration.address;
-  var ucountry = document.registration.country;
+  var state = document.registration.state;
   var uzip = document.registration.zip;
   var uemail = document.registration.email;
-  var umsex = document.registration.msex;
-  var ufsex = document.registration.fsex;
   if (userid_validation(uid, 5, 12)) {
     if (passid_validation(passid, 7, 12)) {
       if (allLetter(uname)) {
         if (alphanumeric(uadd)) {
-          if (countryselect(ucountry)) {
+          if (countryselect(state)) {
             if (allnumeric(uzip)) {
               if (ValidateEmail(uemail)) {
-                if (validsex(umsex, ufsex)) {
+                if()
                 }
               }
             }
@@ -28,6 +26,10 @@ function formValidation() {
 }
 function userid_validation(uid, mx, my) {
   var uid_len = uid.value.length;
+  var letters = /^[0-9a-zA-Z]+$/;
+  if (uid.value.match(letters) && typeof uid[0] !== Number) {
+    return true;
+  }
   if (uid_len == 0 || uid_len >= my || uid_len < mx) {
     alert(
       "User Id should not be empty / length be between " + mx + " to " + my
@@ -35,7 +37,6 @@ function userid_validation(uid, mx, my) {
     uid.focus();
     return false;
   }
-  return true;
 }
 function passid_validation(passid, mx, my) {
   var passid_len = passid.value.length;
@@ -87,14 +88,15 @@ function allnumeric(uzip) {
     return false;
   }
 }
-function ValidateEmail(mail) {
-  if (
-    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value)
-  ) {
+function ValidateEmail(uemail) {
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (uemail.value.match(mailformat)) {
     return true;
+  } else {
+    alert("You have entered an invalid email address!");
+    uemail.focus();
+    return false;
   }
-  alert("You have entered an invalid email address!");
-  return false;
 }
 
 function validsex(umsex, ufsex) {
