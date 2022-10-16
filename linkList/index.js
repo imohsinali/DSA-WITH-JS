@@ -43,3 +43,35 @@ linklist.push(3)
 
 console.warn(linklist)
 
+
+// function uk(arr) {
+//   let result =[];
+//   for(let str of arr)
+//   {
+//     // if(!result.includes(str))
+//     arr.push(str)
+//   }
+//   console.log(result)
+  
+// }
+
+let s = ["Hare", "Krishna", "Hare", "Krishna","Krishna"];
+
+//  uk(s) 
+
+
+function my(s)
+{
+  let result=[]
+  for(let str of s)
+  {
+    if(!result.includes(str))
+{
+  result.push(str)
+
+}
+  }
+  return result
+}
+
+console.warn(my(s))
